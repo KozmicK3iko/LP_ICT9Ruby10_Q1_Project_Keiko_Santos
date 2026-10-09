@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skewer - ICT 1st Quarter Project</title>
+    <!-- PyScript CSS & JS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2023.05.1/pyscript.css" />
+    <script defer src="https://pyscript.net/releases/2023.05.1/pyscript.js"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <nav class="navbar">
+            <div class="logo">Skewer</div>
+            <div class="nav-links">
+                <a href="#sku-section">||| SKU Generator</a>
+                <a href="#receipt-section">ℹ Receipt Generator</a>
+            </div>
+        </nav>
+
+        <main class="content">
+            <!-- Receipt Generator Card -->
+            <section id="receipt-section" class="card">
+                <div class="card-header">
+                    <h2>☕ OBMC Entrep Fair -u- </h2>
+                    <p>Group 1 — Coffee Shop</p>
+                </div>
+                <div class="card-body">
+                    <h3>≡ Menu</h3>
+                    <div class="menu-list">
+                        <label class="menu-item">
+                            <input type="checkbox" id="item1" value="99">
+                            <span>Burger</span>
+                            <span class="price">₱99</span>
+                        </label>
+                        <label class="menu-item">
+                            <input type="checkbox" id="item2" value="129">
+                            <span>Fries</span>
+                            <span class="price">₱129</span>
+                        </label>
+                        <label class="menu-item">
+                            <input type="checkbox" id="item3" value="189">
+                            <span>Icecream</span>
+                            <span class="price">₱189</span>
+                        </label>
+                        <label class="menu-item">
+                            <input type="checkbox" id="item4" value="159">
+                            <span>Milkshake</span>
+                            <span class="price">₱159</span>
+                        </label>
+                        <label class="menu-item">
+                            <input type="checkbox" id="item5" value="129">
+                            <span>Chips</span>
+                            <span class="price">₱129</span>
+                        </label>
+                    </div>
+
+                    <button py-click="create_order" class="btn-primary"> Create Order</button>
+                    
+                    <div id="show" class="output-box">Your order summary will appear here.</div>
+                </div>
+            </section>
+
+            
+            <section id="sku-section" class="card">
+                <div class="card-header">
+                    <h2>||| SKU Generator</h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option value="Perishables">Perishables</option>
+                            <option value="Beverages">Beverages</option>
+                            <option value="Merchandise">Merchandise</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product_name">Product Name</label>
+                        <input type="text" id="product_name" placeholder="e.g. Bottled Water">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Stock Quantity</label>
+                        <input type="number" id="quantity" placeholder="e.g. 50">
+                    </div>
+
+                    <button py-click="SKU_generator" class="btn-primary">Generate SKU</button>
+
+                    <div id="sku_output" class="output-box">Your generated SKU will appear here.</div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>SKU Generator — 1st Quarter Project</p>
+        </footer>
+    </div>
+
+
+    <py-config>
+        [[fetch]]
+        files = ["main.py"]
+    </py-config>
+    <py-script src="main.py"></py-script>
+</body>
+</html>
